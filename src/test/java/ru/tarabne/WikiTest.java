@@ -23,8 +23,9 @@ public class WikiTest {
     void jUnit5ExampleSearch() {
         open("/selenide/selenide");
         $("#wiki-tab").click();
-        $(".markdown-body").$("ul").$(byText("Soft assertions")).shouldBe(visible);
-        $(byText("Soft assertions")).click();
+        $("#wiki-pages-box").$("input").setValue("SoftAssertions");
+        $("#wiki-pages-box").$("ul").shouldHave(text("SoftAssertions"));
+        $("#wiki-pages-box").$("ul").$(byText("SoftAssertions")).click();
         $(".markdown-body").shouldHave(text("@ExtendWith({SoftAssertsExtension.class})\n" +
                 "class Tests {\n" +
                 "  @Test\n" +
