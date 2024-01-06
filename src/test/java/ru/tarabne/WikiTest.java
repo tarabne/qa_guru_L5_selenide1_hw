@@ -36,8 +36,5 @@ public class WikiTest {
                 "    $(\"#second\").should(visible).click();\n" +
                 "  }\n" +
                 "}"));
-
-        sleep(5000);
-
     }
 }
