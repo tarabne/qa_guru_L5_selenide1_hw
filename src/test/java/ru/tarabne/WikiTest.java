@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -23,7 +24,7 @@ public class WikiTest {
     void jUnit5ExampleSearch() {
         open("/selenide/selenide");
         $("#wiki-tab").click();
-        $(".markdown-body").$("ul").shouldHave(text("Soft assertions"));
+        $(".markdown-body").$("ul").$(byText("Soft assertions")).shouldBe(visible);
         $(byText("Soft assertions")).click();
         $(".markdown-body").shouldHave(text("@ExtendWith({SoftAssertsExtension.class})\n" +
                 "class Tests {\n" +
